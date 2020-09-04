@@ -26,14 +26,15 @@
 }
 
 #navbar ul ul {
+    display:list-item;
     background: #673ab7;
     position: absolute;
-    display: none;
+    opacity:0%;
 }
 
 #navbar ul ul ul {
     position: absolute;
-    display: none;
+    opacity: 0%;
     left: 100%;
     top: 0;
 }
@@ -49,11 +50,12 @@
     text-decoration: none;
     transition: 0.5s;
     color: #ffffff;
+    text-transform: uppercase;
+    font-family: system-ui;
 }
 
 #navbar ul ul li a {
     display: list-item;
-    transition: .5s;
     color: #ffffff;
     border-bottom: 1px solid #9E9E9E;
     border-right: 1px solid #9E9E9E;
@@ -66,8 +68,9 @@
 
 
 #navbar ul li:hover > ul {
-    display: list-item;
+    opacity:100%;
     background: #4a4a4a;
+    transition: .5s;
 }
 
 #navbar ul ul li:hover > ul {
