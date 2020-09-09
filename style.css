@@ -60,8 +60,8 @@
 }
 
 #navbar ul li a:hover {
-    background: #2c2c2c;
-    transform: scale(1.05);
+    box-shadow: inset 0px 1px 20px 4px #000000a8;
+    color: yellow;
 }
 
 
