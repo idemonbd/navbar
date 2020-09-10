@@ -1,6 +1,13 @@
 /* Main navbar */
 
-/* ++++++++++++++++++++++ Init+++++++++++++++++++++ */
+/* ++++++++++++++++++++++ Init +++++++++++++++++++++ */
+
+body{
+    background-image: url('1.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+
+}
 nav{
     font-family: system-ui;
 }
@@ -29,7 +36,7 @@ nav ul {
     margin: 0;
     padding: 0;
     list-style: none;
-    background: #4a4a4a;
+    background: #000000b3;
 }
 
 nav ul ul {
