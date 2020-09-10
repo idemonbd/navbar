@@ -1,12 +1,8 @@
+$(document).ready(function() {
 
-// Resonsite Navigation Menu Javascript
+    $('nav .bar i').click( function() {
+        $('nav ul').slideToggle();
+    });
 
-var a = document.querySelector('#navbar ul');
-var b = document.querySelector('#navbar ul');
 
-function show() {
-    if (a.className == 'toggle') {
-        return a.className = '';
-    }
-    return a.className = 'toggle';
-}
+});

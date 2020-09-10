@@ -1,147 +1,174 @@
 /* Main navbar */
-#navbar {
-    background: #4a4a4a;
+
+/* ++++++++++++++++++++++ Init+++++++++++++++++++++ */
+nav{
+    font-family: system-ui;
+}
+
+nav .bar {
+    display: none;
+    height: 40px;
+    background: black;
     position: relative;
-    min-width: 300px;
-    min-height: 40px;
 }
 
-
-#navbar .header {
-    display: none;
+nav .bar i{    
+    position: absolute;
+    color: white;
+    font-size: 30px;
+    right: 10px;
+    top: 5px;
 }
 
-#navbar .bar {
-    display: none;
-}
+/* -----------------------Init--------------------- */
 
 
-#navbar ul {
+/*+++++++++++++++++++++ Global +++++++++++++++++++++*/
+
+nav ul {
     margin: 0;
     padding: 0;
-    display: inline-flex;
     list-style: none;
-    box-sizing: border-box;
-    background:#4a4a4a
+    background: #4a4a4a;
 }
 
-#navbar ul ul {
-    position: absolute;
-    display: none;
+nav ul ul {
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(-10%);
+    transition: 500ms;
+    z-index: 999;
 }
 
-#navbar ul ul ul {
-    left: 100%;
-    top: 0;
-}
-
-#navbar ul li {
+nav ul li {
     position: relative;
-    border-bottom: 1px solid #353535;
+    display: inline-block;
+    padding: 10px 15px 10px 10px;
+    border-bottom: 1px solid rgb(51 51 51);
+    min-width: 40px;
+    text-align: center;
 }
 
-#navbar ul li a {
-    display: flex;
-    padding: 10px 20px 10px 10px;
-    text-decoration: none;
-    transition: 0.5s;
-    color: #ffffff;
-    font-family:system-ui;
-    text-transform: capitalize;
-}
-
-#navbar ul li a.sub:after {
-    content: "\f105";
-    font: normal normal normal 14px/1 FontAwesome;
+nav ul li.has-sub > a::after {
+    content: "\f0d7";
+    font-family: FontAwesome;
+    color: white;
     position: absolute;
-    right: 10px;
-    transform: rotate(90deg);
-    bottom: 12px;
+    right: 0;
+    line-height: 25px;  
+    transition: 500ms;
 }
 
-#navbar ul ul li a.sub:after {
-    transform: rotate(0deg);
+nav ul ul li.has-sub > a::after {
+  right: 10px;
+
+  transform: rotate(-90deg);
 }
 
-#navbar ul ul li a {
-    display: list-item;
-    transition: .5s;
-}
-
-#navbar ul li a:hover {
+nav ul li::before{
+    content: "";
+    position: absolute;
     box-shadow: inset 0px 1px 20px 4px #333333;
+    height: 100%;
+    width: 0%;
+    left: 0;
+    top: 0;
+    visibility: hidden;
+    transition: 500ms;
+}
+
+nav ul ul li{
+    text-align: left;
+    padding: 10px;
+    display: block;
+}
+
+nav ul li:hover::before{
+    visibility: visible;
+    width: 100%;;
+}
+
+nav ul li a{
+    text-decoration: none;
+    text-transform: capitalize;
+    color: white;
 }
 
 
-#navbar ul li:hover > ul {
-    display: list-item;
-    border-left:1px solid #333333;
+/* Hover to show */
+nav ul li.has-sub:hover > ul {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
 }
 
-#navbar ul ul li:hover > ul {
-    display: list-item;
+nav ul li.has-sub:hover > a::after{
+    transform: rotate(-180deg);
 }
+
+nav ul ul li.has-sub:hover > a::after{
+    transform: rotate(90deg);
+}
+
+
+/* Main Menu Items  */
+nav > ul {
+    display: block;
+}
+
+/* First Layer */
+nav ul ul {
+    position: absolute;
+    left: 0;
+    top:100%;
+    border: 1px solid rgb(51 51 51);
+}
+
+nav ul ul li:last-child{
+    border-bottom: none;
+}
+
+/* Second Layer */
+nav ul ul ul {
+    left: 100%;
+    top:0;
+}
+
+/* -----------------------Global--------------------- */
 
 
 @media (max-width:720px){
-    
-    #navbar .header {
-        display: block;
-        height: 40px;
-    }
-    
-    #navbar .toggle {
-        display: block;
-    } 
 
-    #navbar .bar {
+    nav .bar {
         display: block;
-        position: absolute;
+    }
+
+    nav ul li{
+        display: block;
+        text-align: left;
+    }
+
+
+    nav ul li.has-sub:hover > ul{
+        position: static;
+        transform: translateY(10px);
+    }
+
+
+    nav ul li:hover{
+        background: rgb(31, 31, 31);
+    }
+
+    nav ul li.has-sub > a::after {
         right: 10px;
-        top: 4px;
-        width: 30px;
-        font-size: 30px;
-        cursor: pointer;
-        color: white;
     }
     
-    #navbar ul {
-        display: none;
-        background: #4a4a4a;
+    nav ul ul li.has-sub > a::after {
+        transform: rotate(-90deg);
     }
 
-    #navbar ul li {
-        position: unset;
+    nav ul ul li.has-sub:hover > a::after {
+        transform: rotate(0);
     }
 
-    #navbar ul li a.sub:after {
-        right: 10px;
-        transform: rotate(0deg);
-    }
-          
-    #navbar ul ul {
-        position: unset;
-    }
-
-    #navbar ul li:hover > ul {
-        display: list-item;
-    }
-
-    #navbar ul ul li:hover > ul {
-        display: list-item;
-    }
-
-    #navbar ul li:hover > ul a {
-        padding-left: 20px;
-    }
-
-    #navbar ul ul li:hover > ul a {
-        padding-left: 40px;
-    }
-
-    #navbar ul ul li:hover > ul {
-        display: list-item;
-        position: unset;
-    }
- 
 }
