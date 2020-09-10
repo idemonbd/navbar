@@ -1,4 +1,3 @@
-
 /* Main navbar */
 #navbar {
     background: #4a4a4a;
@@ -23,51 +22,60 @@
     display: inline-flex;
     list-style: none;
     box-sizing: border-box;
+    background:#4a4a4a
 }
 
 #navbar ul ul {
-    background: #673ab7;
     position: absolute;
     display: none;
 }
 
 #navbar ul ul ul {
-    position: absolute;
-    display: none;
     left: 100%;
     top: 0;
 }
 
 #navbar ul li {
     position: relative;
-    border-bottom: 1px solid #585858;
+    border-bottom: 1px solid #353535;
 }
 
 #navbar ul li a {
     display: flex;
-    padding: 10px 10px;
+    padding: 10px 20px 10px 10px;
     text-decoration: none;
     transition: 0.5s;
     color: #ffffff;
+    font-family:system-ui;
+    text-transform: capitalize;
+}
+
+#navbar ul li a.sub:after {
+    content: "\f105";
+    font: normal normal normal 14px/1 FontAwesome;
+    position: absolute;
+    right: 10px;
+    transform: rotate(90deg);
+    bottom: 12px;
+}
+
+#navbar ul ul li a.sub:after {
+    transform: rotate(0deg);
 }
 
 #navbar ul ul li a {
     display: list-item;
     transition: .5s;
-    color: #ffffff;
-    border-bottom: 1px solid #9E9E9E;
-    border-right: 1px solid #9E9E9E;
 }
 
 #navbar ul li a:hover {
-    box-shadow: inset 0px 1px 20px 4px #000000a8;
-    color: yellow;
+    box-shadow: inset 0px 1px 20px 4px #333333;
 }
 
 
 #navbar ul li:hover > ul {
     display: list-item;
-    background: #4a4a4a;
+    border-left:1px solid #333333;
 }
 
 #navbar ul ul li:hover > ul {
@@ -80,7 +88,6 @@
     #navbar .header {
         display: block;
         height: 40px;
-        border-bottom: 1px solid #696969;
     }
     
     #navbar .toggle {
@@ -93,47 +100,35 @@
         right: 10px;
         top: 4px;
         width: 30px;
-        font-size: 10px;
+        font-size: 30px;
         cursor: pointer;
+        color: white;
     }
     
     #navbar ul {
         display: none;
+        background: #4a4a4a;
     }
 
-    #navbar ul li, #navbar ul ul li, #navbar ul ul ul li {
+    #navbar ul li {
         position: unset;
-        border-bottom: 1px solid #696969;
     }
-   
-    #navbar ul li a:hover {
-        transform: unset;
-        background: #3c3c3c;
-        border: unset;
-        border-bottom: 1px solid #FFC107;
+
+    #navbar ul li a.sub:after {
+        right: 10px;
+        transform: rotate(0deg);
     }
-    
-    #navbar ul ul li a:hover {
-        transform: unset;
-        background: #2b2929;
-        border: unset;
-        border-bottom: 1px solid #2196F3;
-    }
-        
-    #navbar ul ul, #navbar ul ul ul {
+          
+    #navbar ul ul {
         position: unset;
-        background: #444444;
     }
 
     #navbar ul li:hover > ul {
         display: list-item;
-        border-left: 4px solid #ffcc13;
     }
 
     #navbar ul ul li:hover > ul {
         display: list-item;
-        background: #2b2b2b;
-        border-left: 4px solid #2196F3;
     }
 
     #navbar ul li:hover > ul a {
@@ -141,19 +136,12 @@
     }
 
     #navbar ul ul li:hover > ul a {
-        padding-left: 20px;
+        padding-left: 40px;
     }
 
     #navbar ul ul li:hover > ul {
         display: list-item;
         position: unset;
-        padding-left: 10px;
     }
-    
-    #navbar ul ul li:hover > ul {
-        display: list-item;
-        padding: unset;
-    }
-    
  
 }
