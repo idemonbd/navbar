@@ -4,33 +4,26 @@
 
 body{
     background-image: url('1.jpg');
-    background-size: cover;
+    background-size: auto;
     background-repeat: no-repeat;
 
 }
 nav{
     font-family: system-ui;
-}
-
-nav .bar {
-    display: none;
-    height: 40px;
-    background: black;
-    position: relative;
-}
-
-nav .bar i{    
-    position: absolute;
-    color: white;
-    font-size: 30px;
-    right: 10px;
-    top: 5px;
+    overflow:visible;
 }
 
 /* -----------------------Init--------------------- */
 
 
 /*+++++++++++++++++++++ Global +++++++++++++++++++++*/
+
+nav label , nav input{
+    display: none;
+}
+nav .fa-times {
+    transform: rotate(90deg) scale(0);
+}
 
 nav ul {
     margin: 0;
@@ -42,9 +35,10 @@ nav ul {
 nav ul ul {
     visibility: hidden;
     opacity: 0;
-    transform: translateY(-10%);
+    transform: scaleY(0);
     transition: 500ms;
     z-index: 999;
+    transform-origin: top;
 }
 
 nav ul li {
@@ -68,7 +62,6 @@ nav ul li.has-sub > a::after {
 
 nav ul ul li.has-sub > a::after {
   right: 10px;
-
   transform: rotate(-90deg);
 }
 
@@ -77,7 +70,6 @@ nav ul li::before{
     position: absolute;
     box-shadow: inset 0px 1px 20px 4px #333333;
     height: 100%;
-    width: 0%;
     left: 0;
     top: 0;
     visibility: hidden;
@@ -106,7 +98,7 @@ nav ul li a{
 nav ul li.has-sub:hover > ul {
     visibility: visible;
     opacity: 1;
-    transform: translateY(0);
+    transform: scaleY(1);
 }
 
 nav ul li.has-sub:hover > a::after{
@@ -114,7 +106,7 @@ nav ul li.has-sub:hover > a::after{
 }
 
 nav ul ul li.has-sub:hover > a::after{
-    transform: rotate(90deg);
+    transform: rotate(0);
 }
 
 
@@ -146,24 +138,58 @@ nav ul ul ul {
 
 @media (max-width:720px){
 
-    nav .bar {
+    nav {
+        overflow: hidden;
+    }
+
+    nav .fa-bars , nav .fa-times {
+    font-size: 30px;
+    color: white;
+    transition: 1s;
+    }
+
+    nav > ul{
+        transform: translateY(-120%);
+        transform-origin: top;
+        transition: 1s ease;
+    }
+
+    nav input:checked ~ ul{
+        transform: translateY(0);
+    }
+
+    nav input:checked ~ label i.fa-bars{
+        transform: rotate(90deg) scale(0);
+    }
+
+    nav input:checked ~ label i.fa-times {
+        transform: rotate(90deg) scale(1);
+    }
+
+    nav label {
+        background: rgb(58, 58, 58);
         display: block;
+        height: 40px;
+        position: relative;
+        z-index: 999;
+    }
+
+    nav label i {
+        position: absolute;
+        right: 5px;
+        top: 5px;
     }
 
     nav ul li{
         display: block;
         text-align: left;
+        background: #575757;
     }
 
 
     nav ul li.has-sub:hover > ul{
         position: static;
         transform: translateY(10px);
-    }
-
-
-    nav ul li:hover{
-        background: rgb(31, 31, 31);
     }
 
     nav ul li.has-sub > a::after {
